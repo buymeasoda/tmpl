@@ -19,4 +19,16 @@ test("tags that don't exist in the content object aren't replaced", function () 
         content = {};
     equals(tmpl(template, content), result);
 });
+
+test("tmpl replaces nested object property values", function () {
+    var template = "<p>Agent {{code}}: {{name.first}} {{name.last}}</p>",
+        result = "<p>Agent 007: James Bond</p>",
+        content = {
+            code: "007",
+            name: {
+                first: "James",
+                last: "Bond"
+            }
+        };
+    equals(tmpl(template, content), result);
 });
