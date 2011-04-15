@@ -1,15 +1,15 @@
 
 function tmpl(template, data) {
-    return template.replace(/\{\{([^}]+)\}\}/g, function (tag, ref) {
+    return template.replace(/\{\{([^}]+)\}\}/g, function (tag, key) {
         var value;
-        if (ref.indexOf(".") >= 0 && ref !== ".") {
+        if (key.match(/\./) && key !== ".") {
             value = data;
-            ref = ref.split(".");
-            for (var i = 0, l = ref.length; i < l; i++) {
-                value = value[ref[i]];
+            key = key.split(".");
+            for (var i = 0, l = key.length; i < l; i++) {
+                value = value[key[i]];
             }            
         } else {
-            value = data[ref];
+            value = data[key];
         }
         return value || tag;
     });
