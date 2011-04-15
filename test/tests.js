@@ -7,5 +7,9 @@ test("tmpl exists", function () {
 });
 
 test("tmpl replaces simple content", function () {
-    equals(tmpl("<p>Hello {{name}}</p>", {name: "world"}), "<p>Hello world</p>");
+    var template = "<p>Hello {{name}}</p>",
+        result = "<p>Hello world</p>",
+        content = {name: "world"};
+    equals(tmpl(template, content), result);
+});
 });
