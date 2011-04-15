@@ -32,3 +32,15 @@ test("tmpl replaces nested object property values", function () {
         };
     equals(tmpl(template, content), result);
 });
+
+test("tmpl returns tag name for non-matched nested object property", function () {
+    var template = "<p>My {{title}} is {{name.last}}, {{name.first}} {{name.last}}</p>",
+        result = "<p>My name is Bond, {{name.first}} Bond</p>",
+        content = {
+            title: "name",
+            name: {
+                last: "Bond"
+            }
+        };
+    equals(tmpl(template, content), result);
+});
