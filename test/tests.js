@@ -44,3 +44,10 @@ test("tmpl returns tag name for non-matched nested object property", function ()
         };
     equals(tmpl(template, content), result);
 });
+
+test("{{.}} should not cause an error when looking up object reference", function () {
+    var template = "{{.}}",
+        result = "{{.}}",
+        content = {};
+    equals(tmpl(template, content), result);
+});
