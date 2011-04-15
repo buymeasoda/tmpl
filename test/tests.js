@@ -1,7 +1,8 @@
+/*global tmpl, module, test, ok, equals */
 
 module("tmpl tests");
 
-test("tmpl exists", function() {
+test("tmpl exists", function () {
 	ok(tmpl);
 });
 
