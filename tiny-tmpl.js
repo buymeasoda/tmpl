@@ -1,4 +1,24 @@
 
+// Tiny tmpl
+
+/*
+Example:
+
+var template = "<p>{{greeting}}, {{agent.title}} {{agent.surname}}.</p>",
+    data = {
+        greeting: "Good evening",
+        agent: {
+            title: "Mister", 
+            surname: "Bond"
+        }
+    },
+    content = tmpl(template, data);
+    
+Result: 
+
+content == "<p>Good evening, Mister Bond.</p>"
+*/
+
 var tmpl = (function () {
     var pattern = /\{\{([^}]+)\}\}/g;
     return function (template, data) {
