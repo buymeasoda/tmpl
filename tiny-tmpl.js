@@ -10,5 +10,5 @@ var tmpl = (function () {
             }
             return value || tag;
         });
-    }
+    };
 }());
