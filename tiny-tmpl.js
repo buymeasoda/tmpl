@@ -8,13 +8,13 @@ var template = "<p>{{greeting}}, {{agent.title}} {{agent.surname}}.</p>",
     data = {
         greeting: "Good evening",
         agent: {
-            title: "Mister", 
+            title: "Mister",
             surname: "Bond"
         }
     },
     content = tmpl(template, data);
     
-Result: 
+Result:
 
 content == "<p>Good evening, Mister Bond.</p>"
 */
@@ -28,7 +28,7 @@ var tmpl = (function () {
             for (var i = 0, l = key.length; value && i < l; i++) {
                 value = value[key[i]];
             }
-            return value || tag;
+            return typeof value !== 'undefined' ? value : tag;
         });
     };
 }());

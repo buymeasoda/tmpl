@@ -19,3 +19,14 @@ test("tags that don't exist in the content object aren't replaced", function () 
         content = {};
     equals(tmpl(template, content), result);
 });
+
+test("falsy values are rendered correctly to the template", function () {
+    var template = "Empty string: '{{empty}}', Zero: {{zero}}, Whitespace: '{{whitespace}}'",
+        result = "Empty string: '', Zero: 0, Whitespace: '\t'",
+        content = {
+            empty: '',
+            zero: 0,
+            whitespace: '\t'
+        };
+    equals(tmpl(template, content), result);
+});
